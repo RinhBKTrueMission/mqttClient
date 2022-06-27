@@ -1,0 +1,231 @@
+﻿<Page x:Class="WPF_login.Views.Pages.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF_login.Views.Pages"
+      xmlns:gauge ="clr-namespace:Syncfusion.UI.Xaml.Gauges;assembly=Syncfusion.SfGauge.Wpf"
+      xmlns:Syncfusion ="clr-namespace:Syncfusion.UI.Xaml.ProgressBar;assembly=Syncfusion.SfProgressBar.Wpf"
+      mc:Ignorable="d" 
+      xmlns:syncfusion="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="HomePage">
+
+    <!--<Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">-->
+    <Border CornerRadius="5" Background="#52B2BF">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border Margin="5" Background="Black" Grid.Row="0" Grid.Column="0" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="6*"/>
+                    </Grid.RowDefinitions>
+                    <Border Background="#016064" Grid.Column="0" Grid.Row="0">
+                        <Label Margin="20 0 0 0" Foreground="White" FontWeight="Bold" FontFamily="Times New Roman">Khả năng cháy</Label>
+                    </Border>
+                    <Border Background="White" Grid.Column="0" Grid.Row="1"></Border>
+                </Grid>
+            </Border>
+            <Border  Margin="5" Background="Black" Grid.Row="0" Grid.Column="1" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="6*"/>
+                    </Grid.RowDefinitions>
+                    <Border Background="#016064" Grid.Column="0" Grid.Row="0" >
+                        <Label Margin="20 0 0 0" Foreground="White" FontWeight="Bold" FontFamily="Times New Roman">Nhiệt độ phòng</Label>
+                    </Border>
+                    <Border Background="White" Grid.Column="0" Grid.Row="1" >
+                        <!--<TextBlock FontSize="86" Margin="40 0 0 0" Foreground="White">
+                             <Run Text="{Binding nhiet_do}"/>
+                               <Run Text="°C"/>
+                        </TextBlock>-->
+                        
+                        <gauge:SfCircularGauge>
+                            <gauge:SfCircularGauge.Scales>
+                                <gauge:CircularScale StartValue="0" EndValue="120" Interval="10" MinorTicksPerInterval="9" LabelStroke="#5b5b5b" 
+                                     RangePosition="Custom" TickPosition="Custom" LabelPosition="Custom" ShowRim="False" LabelOffset="0.6" >
+                                    <gauge:CircularScale.MajorTickSettings>
+                                        <gauge:MajorTickSetting StartOffset="0.85" EndOffset="0.65" StrokeThickness="1" Stroke="Black" />
+                                    </gauge:CircularScale.MajorTickSettings>
+                                    <gauge:CircularScale.MinorTickSettings>
+                                        <gauge:MinorTickSetting StartOffset="0.85" EndOffset="0.75" StrokeThickness="1" Stroke="Black" />
+                                    </gauge:CircularScale.MinorTickSettings>
+                                    <gauge:CircularScale.Ranges>
+                                        <gauge:CircularRange OuterStartOffset="0.85" OuterEndOffset="0.85"
+                  InnerStartOffset="0.65" InnerEndOffset="0.65" StartValue="-50" EndValue="-10" Stroke="#4f91fa" />
+                                        <gauge:CircularRange OuterStartOffset="0.85" OuterEndOffset="0.85"
+InnerStartOffset="0.65" InnerEndOffset="0.65" StartValue="-10" EndValue="5" Stroke="#28bce4" />
+                                        <gauge:CircularRange OuterStartOffset="0.85" OuterEndOffset="0.85"
+                 InnerStartOffset="0.65" InnerEndOffset="0.65" StartValue="5" EndValue="20" Stroke="#0bbe53" />
+                                        <gauge:CircularRange OuterStartOffset="0.85" OuterEndOffset="0.85"
+                 InnerStartOffset="0.65" InnerEndOffset="0.65" StartValue="20" EndValue="30" Stroke="#d4d459" />
+                                        <gauge:CircularRange OuterStartOffset="0.85" OuterEndOffset="0.85"
+                 InnerStartOffset="0.65" InnerEndOffset="0.65" StartValue="30" EndValue="60" Stroke="#ff3233" />
+                                        
+                                    </gauge:CircularScale.Ranges>
+                                    <gauge:CircularScale.Pointers>
+                                        <gauge:CircularPointer EnableAnimation="True" Value="{Binding nhiet_do}" NeedleLengthFactor="0.77" NeedlePointerStroke="#f7ab9c" NeedlePointerStrokeThickness="12" TailLengthFactor="0.15" TailFill="#f7ab9c" KnobRadiusFactor="0.08" KnobStroke="#eff2f1" KnobStrokeThickness="5" KnobFill="#e8e8e8" NeedlePointerType="Triangle"/>
+                                    </gauge:CircularScale.Pointers>
+                                </gauge:CircularScale>
+                            </gauge:SfCircularGauge.Scales>
+                            
+                            <gauge:SfCircularGauge.Annotations>
+                            <gauge:GaugeAnnotation Angle="90" Offset="0.5">
+                                <gauge:GaugeAnnotation.Content>
+                                        <Border BorderBrush="#6f6d6d" BorderThickness="2" Background="#babab2" CornerRadius="3">
+                                            <TextBlock x:Name="text" Text="{Binding nhiet_do }"  Foreground="#403f3d" FontSize="14" FontWeight="Bold"  Margin="10,1,10,1" />
+                                    </Border>
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+                            <gauge:GaugeAnnotation Angle="90" Offset="0.3">
+                                <gauge:GaugeAnnotation.Content>
+                                    <TextBlock FontSize="12" Text="Temp. °C" Foreground="#9b9b9b" FontWeight="SemiBold"/>
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+                            
+                        </gauge:SfCircularGauge.Annotations>
+                            </gauge:SfCircularGauge>
+                        <!--<gauge:SfCircularGauge>
+
+                            <gauge:SfCircularGauge.Scales>
+
+                                <gauge:CircularScale Radius="65" >
+
+                                    <gauge:CircularScale.Pointers>
+
+                                        <gauge:CircularPointer EnableAnimation="True" PointerType="NeedlePointer" AnimationDuration="500" NeedleLengthFactor="0.4" Value="60"
+    NeedlePointerType="Triangle" KnobStroke="Black" PointerCapDiameter="20"/>
+
+                                        <gauge:CircularPointer PointerType="RangePointer" AnimationDuration="1000" Value="160" RangePointerStroke="#39B2C6"/>
+
+                                    </gauge:CircularScale.Pointers>
+
+                                </gauge:CircularScale>
+
+                            </gauge:SfCircularGauge.Scales>
+
+                        </gauge:SfCircularGauge>-->
+
+                    </Border>
+                </Grid>
+            </Border>
+            <Border  Margin="5" Background="Black"  Grid.Row="0" Grid.Column="2" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="6*"/>
+                    </Grid.RowDefinitions>
+                    <Border Background="#016064" Grid.Column="0" Grid.Row="0" >
+                        <Label Margin="20 0 0 0" Foreground="White" FontWeight="Bold" FontFamily="Times New Roman">Độ ẩm</Label>
+                    </Border>
+                    <Border  Background="White" Grid.Column="0" Grid.Row="1" >
+                        <!--<TextBlock FontSize="86" Foreground="White" Margin="20 0 0 0">
+                            <Run Text="{Binding do_am}"/>
+                               <Run Text="%"/>
+                        </TextBlock>-->
+                        <Syncfusion:SfCircularProgressBar >
+                            <Syncfusion:SfCircularProgressBar.ProgressContent >
+                                <StackPanel>
+                                    <TextBlock Text="{Binding do_am,StringFormat={}{0}%}"  TextAlignment="Center" />
+                                    <TextBlock Text="Hum" />
+                                </StackPanel>
+                            </Syncfusion:SfCircularProgressBar.ProgressContent>
+                        </Syncfusion:SfCircularProgressBar>
+
+
+
+                    </Border>
+                </Grid>
+            </Border>
+            <Border  Margin="5" Background="Black"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="6*"/>
+                    </Grid.RowDefinitions>
+                    <Border Background="#016064" Grid.Column="0" Grid.Row="0" >
+                        <Label Margin="20 0 0 0" Foreground="White" FontWeight="Bold" FontFamily="Times New Roman">Biểu đồ nhiệt độ, độ ẩm</Label>
+                    </Border>
+                    <Border Background="White" Grid.Column="0" Grid.Row="1" >
+                        <syncfusion:SfChart >
+                            <syncfusion:SfChart.Legend>
+
+                                <syncfusion:ChartLegend />
+
+                            </syncfusion:SfChart.Legend>
+                            <syncfusion:StackingLine100Series ItemsSource="{Binding Data}"  XBindingPath="MonthlyExpenses" YBindingPath="Father" Interior="#C75052" Margin="0,0,18,0"/>
+                            <syncfusion:StackingLine100Series ItemsSource="{Binding Data}" XBindingPath="MonthlyExpenses"  YBindingPath="Mother" Interior="#505FC7"/>
+                        </syncfusion:SfChart>
+                    </Border>
+                </Grid>
+            </Border>
+            <Border  Margin="5" Background="Black"  Grid.Row="1" Grid.Column="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="6*"/>
+                    </Grid.RowDefinitions>
+                    <Border Background="#016064" Grid.Column="0" Grid.Row="0" >
+                        <Label Margin="20 0 0 0" Foreground="White" FontWeight="Bold" FontFamily="Times New Roman">Gas</Label>
+                    </Border>
+                    <Border Background="White" Grid.Column="0" Grid.Row="1" >
+                        <TextBlock FontSize="86" Margin="20 0 0 0" Foreground="White">
+                              <Run Text="{Binding gas}"/>
+                               <Run FontSize="52" Text="ppm"/>
+                        </TextBlock>
+                    </Border>
+                </Grid>
+            </Border>
+            <Border  Margin="5" Background="Black" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="6*"/>
+                    </Grid.RowDefinitions>
+                    <Border Background="#016064" Grid.Column="0" Grid.Row="0">
+                        <Label Margin="20 0 0 0" Foreground="White" FontWeight="Bold" FontFamily="Times New Roman">Biểu đồ nồng độ khói và khí gas</Label>
+                    </Border>
+                    <Border Background="White" Grid.Column="0" Grid.Row="1">
+                        <syncfusion:SfChart >
+                            <syncfusion:SfChart.Legend>
+
+                                <syncfusion:ChartLegend />
+
+                            </syncfusion:SfChart.Legend>
+                            <syncfusion:StackingLine100Series ItemsSource="{Binding Data}"  XBindingPath="MonthlyExpenses" YBindingPath="Father" Interior="#C3C750" Margin="0,0,10,0"/>
+                            <syncfusion:StackingLine100Series ItemsSource="{Binding Data}" XBindingPath="MonthlyExpenses"  YBindingPath="Mother" Interior="#50C75D"/>
+                        </syncfusion:SfChart>
+                    </Border>
+                </Grid>
+            </Border>
+            <Border  Margin="5" Background="Black" Grid.Row="2" Grid.Column="2" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="6*"/>
+                    </Grid.RowDefinitions>
+                    <Border Background="#016064" Grid.Column="0" Grid.Row="0">
+                        <Label Margin="20 0 0 0" Foreground="White" FontWeight="Bold" FontFamily="Times New Roman">Khói</Label>
+                    </Border>
+                    <Border Background="White" Grid.Column="0" Grid.Row="1">
+                        <TextBlock FontSize="86" Margin="20 0 0 0" Foreground="White">
+                              <Run x:Name="txt_khoi" Text="{Binding khoi}"/>
+                               <Run FontSize="52" Text="ppm"/>
+                        </TextBlock>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</Page>
