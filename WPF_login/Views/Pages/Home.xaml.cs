@@ -30,7 +30,7 @@ namespace WPF_login.Views.Pages
             InitializeComponent();
             DataContext = this;
 
-          
+
 
             var client = new MqttClient("localhost", 1883, false, null, null, MqttSslProtocols.None);
             string id = "rinhtt";    // Client-Id mit Zuffalssstring
@@ -42,16 +42,63 @@ namespace WPF_login.Views.Pages
             client.Publish("device", UTF8Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(payload)));
             client.Subscribe(new[] { "response/tong" }, new[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
             //client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
-             client.MqttMsgPublishReceived += async (object sender, MqttMsgPublishEventArgs e) => {
+            client.MqttMsgPublishReceived += async (object sender, MqttMsgPublishEventArgs e) =>
+            {
                 string ReceivedMessage = Encoding.UTF8.GetString(e.Message);
                 var msg = JsonConvert.DeserializeObject<ObjSum>(ReceivedMessage);
                 var newValue = msg.Value;
                 //Application.Current.Dispatcher.InvokeAsync(() => { senserInfolst = JsonConvert.DeserializeObject<List<senser>>(ReceivedMessage); });
-               await Application.Current.Dispatcher.InvokeAsync(() => { this.DataContext = newValue; });
+                await Application.Current.Dispatcher.InvokeAsync(() => { this.DataContext = newValue; });
 
             };
+            //var nodelst = new nodeSumlstString();
+            //nodelst.nhiet_do = new List<setDataString>()
+            //{
+            //    new setDataString("11:06 PM",new Random().Next(10, 99)),
+            //     new setDataString("10:06 PM",new Random().Next(10, 99)),
+            //      new setDataString("9:06 PM",new Random().Next(10, 99)),
+            //       new setDataString("8:06 PM",new Random().Next(10, 99)),
+            //        new setDataString("7:06 PM",new Random().Next(10, 99)),
+            //         new setDataString("6:06 PM",new Random().Next(10, 99)),
+            //          new setDataString("5:06 PM",new Random().Next(10, 99)),
 
+            //};
+            //nodelst.gas = new List<setDataString>()
+            //{
+            //    new setDataString("11:06 PM",new Random().Next(10, 99)),
+            //     new setDataString("10:06 PM",new Random().Next(10, 99)),
+            //      new setDataString("9:06 PM",new Random().Next(10, 99)),
+            //       new setDataString("8:06 PM",new Random().Next(10, 99)),
+            //        new setDataString("7:06 PM",new Random().Next(10, 99)),
+            //         new setDataString("6:06 PM",new Random().Next(10, 99)),
+            //          new setDataString("5:06 PM",new Random().Next(10, 99)),
 
+            //};
+            //nodelst.khoi = new List<setDataString>()
+            //{
+            //    new setDataString("11:06 PM",new Random().Next(10, 99)),
+            //     new setDataString("10:06 PM",new Random().Next(10, 99)),
+            //      new setDataString("9:06 PM",new Random().Next(10, 99)),
+            //       new setDataString("8:06 PM",new Random().Next(10, 99)),
+            //        new setDataString("7:06 PM",new Random().Next(10, 99)),
+            //         new setDataString("6:06 PM",new Random().Next(10, 99)),
+            //          new setDataString("5:06 PM",new Random().Next(10, 99)),
+
+            //};
+            //nodelst.do_am = new List<setDataString>()
+            //{
+            //    new setDataString("11:06 PM",new Random().Next(10, 99)),
+            //     new setDataString("10:06 PM",new Random().Next(10, 99)),
+            //      new setDataString("9:06 PM",new Random().Next(10, 99)),
+            //       new setDataString("8:06 PM",new Random().Next(10, 99)),
+            //        new setDataString("7:06 PM",new Random().Next(10, 99)),
+            //         new setDataString("6:06 PM",new Random().Next(10, 99)),
+            //          new setDataString("5:06 PM",new Random().Next(10, 99)),
+
+            //};
+            //nodelst.sum = new nodeSum();
+            //nodelst.sum.nhiet_do = nodelst.sum.gas = nodelst.sum.khoi = nodelst.sum.do_am=60;
+            //this.DataContext = nodelst;
 
 
         }

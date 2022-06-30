@@ -75,7 +75,7 @@ InnerStartOffset="0.65" InnerEndOffset="0.65" StartValue="-10" EndValue="5" Stro
                                         
                                     </gauge:CircularScale.Ranges>
                                     <gauge:CircularScale.Pointers>
-                                        <gauge:CircularPointer EnableAnimation="True" Value="{Binding nhiet_do}" NeedleLengthFactor="0.77" NeedlePointerStroke="#f7ab9c" NeedlePointerStrokeThickness="12" TailLengthFactor="0.15" TailFill="#f7ab9c" KnobRadiusFactor="0.08" KnobStroke="#eff2f1" KnobStrokeThickness="5" KnobFill="#e8e8e8" NeedlePointerType="Triangle"/>
+                                        <gauge:CircularPointer EnableAnimation="True" Value="{Binding sum.nhiet_do.value}" NeedleLengthFactor="0.77" NeedlePointerStroke="#f7ab9c" NeedlePointerStrokeThickness="12" TailLengthFactor="0.15" TailFill="#f7ab9c" KnobRadiusFactor="0.08" KnobStroke="#eff2f1" KnobStrokeThickness="5" KnobFill="#e8e8e8" NeedlePointerType="Triangle"/>
                                     </gauge:CircularScale.Pointers>
                                 </gauge:CircularScale>
                             </gauge:SfCircularGauge.Scales>
@@ -84,7 +84,7 @@ InnerStartOffset="0.65" InnerEndOffset="0.65" StartValue="-10" EndValue="5" Stro
                             <gauge:GaugeAnnotation Angle="90" Offset="0.5">
                                 <gauge:GaugeAnnotation.Content>
                                         <Border BorderBrush="#6f6d6d" BorderThickness="2" Background="#babab2" CornerRadius="3">
-                                            <TextBlock x:Name="text" Text="{Binding nhiet_do }"  Foreground="#403f3d" FontSize="14" FontWeight="Bold"  Margin="10,1,10,1" />
+                                            <TextBlock x:Name="text" Text="{Binding sum.nhiet_do.value }"  Foreground="#403f3d" FontSize="14" FontWeight="Bold"  Margin="10,1,10,1" />
                                     </Border>
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
@@ -96,26 +96,7 @@ InnerStartOffset="0.65" InnerEndOffset="0.65" StartValue="-10" EndValue="5" Stro
                             
                         </gauge:SfCircularGauge.Annotations>
                             </gauge:SfCircularGauge>
-                        <!--<gauge:SfCircularGauge>
-
-                            <gauge:SfCircularGauge.Scales>
-
-                                <gauge:CircularScale Radius="65" >
-
-                                    <gauge:CircularScale.Pointers>
-
-                                        <gauge:CircularPointer EnableAnimation="True" PointerType="NeedlePointer" AnimationDuration="500" NeedleLengthFactor="0.4" Value="60"
-    NeedlePointerType="Triangle" KnobStroke="Black" PointerCapDiameter="20"/>
-
-                                        <gauge:CircularPointer PointerType="RangePointer" AnimationDuration="1000" Value="160" RangePointerStroke="#39B2C6"/>
-
-                                    </gauge:CircularScale.Pointers>
-
-                                </gauge:CircularScale>
-
-                            </gauge:SfCircularGauge.Scales>
-
-                        </gauge:SfCircularGauge>-->
+                       
 
                     </Border>
                 </Grid>
@@ -134,16 +115,35 @@ InnerStartOffset="0.65" InnerEndOffset="0.65" StartValue="-10" EndValue="5" Stro
                             <Run Text="{Binding do_am}"/>
                                <Run Text="%"/>
                         </TextBlock>-->
-                        <Syncfusion:SfCircularProgressBar >
+                        <Syncfusion:SfCircularProgressBar  Progress="{Binding sum.do_am.value}">
                             <Syncfusion:SfCircularProgressBar.ProgressContent >
                                 <StackPanel>
-                                    <TextBlock Text="{Binding do_am,StringFormat={}{0}%}"  TextAlignment="Center" />
+                                    <TextBlock Text="{Binding sum.do_am.value,StringFormat={}{0}%}"  TextAlignment="Center" />
                                     <TextBlock Text="Hum" />
                                 </StackPanel>
                             </Syncfusion:SfCircularProgressBar.ProgressContent>
                         </Syncfusion:SfCircularProgressBar>
 
 
+
+                    </Border>
+                </Grid>
+            </Border>
+            <Border  Margin="5" Background="Black"  Grid.Row="1" Grid.Column="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="6*"/>
+                    </Grid.RowDefinitions>
+                    <Border Background="#016064" Grid.Column="0" Grid.Row="0" >
+                        <Label Margin="20 0 0 0" Foreground="White" FontWeight="Bold" FontFamily="Times New Roman">Gas</Label>
+                    </Border>
+                    <Border Background="White" Grid.Column="0" Grid.Row="1" >
+                        <TextBlock FontSize="82" Margin="20 0 0 0" Foreground="#50C75D">
+                              <Run Text="{Binding sum.gas.value}"/>
+                               <Run FontSize="50" Text=".ppm"/>
+                           
+                        </TextBlock>
 
                     </Border>
                 </Grid>
@@ -158,35 +158,19 @@ InnerStartOffset="0.65" InnerEndOffset="0.65" StartValue="-10" EndValue="5" Stro
                         <Label Margin="20 0 0 0" Foreground="White" FontWeight="Bold" FontFamily="Times New Roman">Biểu đồ nhiệt độ, độ ẩm</Label>
                     </Border>
                     <Border Background="White" Grid.Column="0" Grid.Row="1" >
-                        <syncfusion:SfChart >
+                        <syncfusion:SfChart Margin="0,0,10,0">
                             <syncfusion:SfChart.Legend>
 
                                 <syncfusion:ChartLegend />
 
                             </syncfusion:SfChart.Legend>
-                            <syncfusion:StackingLine100Series ItemsSource="{Binding Data}"  XBindingPath="MonthlyExpenses" YBindingPath="Father" Interior="#C75052" Margin="0,0,18,0"/>
-                            <syncfusion:StackingLine100Series ItemsSource="{Binding Data}" XBindingPath="MonthlyExpenses"  YBindingPath="Mother" Interior="#505FC7"/>
+                            <syncfusion:StackingLineSeries ItemsSource="{Binding nhiet_do}" ShowTooltip="True"  Label="Nhiệt độ"  XBindingPath="Time" YBindingPath="value" Interior="#C75052" Margin="0,0,18,0"/>
+                            <syncfusion:StackingLineSeries ItemsSource="{Binding do_am}" ShowTooltip="True" Label="Độ ẩm"  XBindingPath="Time"  YBindingPath="value" Interior="#505FC7" Margin="0,0,18,0"/>
                         </syncfusion:SfChart>
                     </Border>
                 </Grid>
             </Border>
-            <Border  Margin="5" Background="Black"  Grid.Row="1" Grid.Column="2">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="6*"/>
-                    </Grid.RowDefinitions>
-                    <Border Background="#016064" Grid.Column="0" Grid.Row="0" >
-                        <Label Margin="20 0 0 0" Foreground="White" FontWeight="Bold" FontFamily="Times New Roman">Gas</Label>
-                    </Border>
-                    <Border Background="White" Grid.Column="0" Grid.Row="1" >
-                        <TextBlock FontSize="86" Margin="20 0 0 0" Foreground="White">
-                              <Run Text="{Binding gas}"/>
-                               <Run FontSize="52" Text="ppm"/>
-                        </TextBlock>
-                    </Border>
-                </Grid>
-            </Border>
+           
             <Border  Margin="5" Background="Black" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
                 <Grid>
                     <Grid.RowDefinitions>
@@ -197,14 +181,14 @@ InnerStartOffset="0.65" InnerEndOffset="0.65" StartValue="-10" EndValue="5" Stro
                         <Label Margin="20 0 0 0" Foreground="White" FontWeight="Bold" FontFamily="Times New Roman">Biểu đồ nồng độ khói và khí gas</Label>
                     </Border>
                     <Border Background="White" Grid.Column="0" Grid.Row="1">
-                        <syncfusion:SfChart >
+                        <syncfusion:SfChart Margin="0,0,10,0">
                             <syncfusion:SfChart.Legend>
 
                                 <syncfusion:ChartLegend />
 
                             </syncfusion:SfChart.Legend>
-                            <syncfusion:StackingLine100Series ItemsSource="{Binding Data}"  XBindingPath="MonthlyExpenses" YBindingPath="Father" Interior="#C3C750" Margin="0,0,10,0"/>
-                            <syncfusion:StackingLine100Series ItemsSource="{Binding Data}" XBindingPath="MonthlyExpenses"  YBindingPath="Mother" Interior="#50C75D"/>
+                            <syncfusion:StackingLineSeries ItemsSource="{Binding khoi}" ShowTooltip="True"  Label="Khói"   XBindingPath="Time" YBindingPath="value" Interior="#C3C750" Margin="0,0,10,0"/>
+                            <syncfusion:StackingLineSeries ItemsSource="{Binding gas}" ShowTooltip="True" Label="Gas" XBindingPath="Time"  YBindingPath="value" Interior="#50C75D" Margin="0,0,10,0"/>
                         </syncfusion:SfChart>
                     </Border>
                 </Grid>
@@ -219,9 +203,9 @@ InnerStartOffset="0.65" InnerEndOffset="0.65" StartValue="-10" EndValue="5" Stro
                         <Label Margin="20 0 0 0" Foreground="White" FontWeight="Bold" FontFamily="Times New Roman">Khói</Label>
                     </Border>
                     <Border Background="White" Grid.Column="0" Grid.Row="1">
-                        <TextBlock FontSize="86" Margin="20 0 0 0" Foreground="White">
-                              <Run x:Name="txt_khoi" Text="{Binding khoi}"/>
-                               <Run FontSize="52" Text="ppm"/>
+                        <TextBlock FontSize="82" Margin="20 0 0 0" Foreground="#C3C750">
+                              <Run x:Name="txt_khoi" Text="{Binding sum.khoi.value}"/>
+                               <Run FontSize="50" Text=".ppm"/>
                         </TextBlock>
                     </Border>
                 </Grid>

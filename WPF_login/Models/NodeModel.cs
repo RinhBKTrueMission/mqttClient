@@ -34,10 +34,10 @@ namespace WPF_login.Models
     }
     public class nodeSum
     {
-        public double nhiet_do { get; set; }//0
-        public double gas { get; set; }//1
-        public double khoi { get; set; }//2
-        public double do_am { get; set; }//3
+        public setData nhiet_do { get; set; }//0
+        public setData gas { get; set; }//1
+        public setData khoi { get; set; }//2
+        public setData do_am { get; set; }//3
     }
     public class Obj
     {
@@ -48,8 +48,33 @@ namespace WPF_login.Models
     public class ObjSum
     {
 
-        public nodeSum Value { get; set; }
+        public nodeSumlstString Value { get; set; }
         public string Action { get; set; }
     }
+    public class nodeSumlst
+    {
+        public List<setData> nhiet_do { get; set; }//0
+        public List<setData> gas { get; set; }//1
+        public List<setData> khoi { get; set; }//2
+        public List<setData> do_am { get; set; }//3
+    }
+    public class setDataString
+    {
+        public string Time { get; set; }
+        public double value { get; set; }
+        public setDataString(string time, double value)
+        {
+            Time = time;
+            this.value = value;
+        }
+    }
+    public class nodeSumlstString
+    {
+       public nodeSum sum { get; set; }
+        public List<setDataString> nhiet_do { get; set; }//0
+        public List<setDataString> gas { get; set; }//1
+        public List<setDataString> khoi { get; set; }//2
+        public List<setDataString> do_am { get; set; }//3
 
+    }
 }

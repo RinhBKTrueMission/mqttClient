@@ -411,3 +411,5 @@ D:\Download D\WPF_login\WPF_login\bin\Debug\Microsoft.Graph.Core.xml
 D:\Download D\WPF_login\WPF_login\bin\Debug\Microsoft.IdentityModel.Abstractions.xml
 D:\Download D\WPF_login\WPF_login\bin\Debug\MQTTnet.xml
 D:\Download D\WPF_login\WPF_login\bin\Debug\Syncfusion.SfProgressBar.WPF.xml
+D:\Download D\WPF_login\WPF_login\bin\Debug\Syncfusion.SfChart.WPF.dll
+D:\Download D\WPF_login\WPF_login\bin\Debug\Syncfusion.SfChart.WPF.xml

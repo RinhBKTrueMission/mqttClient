@@ -9,8 +9,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using Syncfusion.UI.Xaml.Gauges;
-using Syncfusion.UI.Xaml.ProgressBar;
 using System;
 using System.Diagnostics;
 using System.Windows;
