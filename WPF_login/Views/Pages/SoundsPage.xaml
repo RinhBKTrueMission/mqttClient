@@ -9,6 +9,122 @@
       Title="HomePage">
 
     <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
-        <Label Content="Sounds" Foreground="Black" FontSize="50" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Grid x:Name="Roomlst">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                
+            </Grid.RowDefinitions>
+            <Border x:Name="T1"  Background="Green" 
+                    Grid.Column="0" Grid.Row="0"
+                    Margin="10"
+                    CornerRadius="5"
+                    MouseLeftButtonDown="getFloor">
+
+                <Label VerticalContentAlignment="Center" 
+                       Foreground="Wheat"
+                       FontSize="25"
+                       FontWeight="Bold"
+                       HorizontalContentAlignment="Center">
+                    Floor 1
+                </Label>
+            </Border>
+            <Border x:Name="T2"  Background="Green" 
+                    Grid.Column="1" Grid.Row="0"
+                    Margin="10"
+                    CornerRadius="5"
+                    MouseLeftButtonDown="getFloor">
+
+                <Label VerticalContentAlignment="Center" 
+                       Foreground="Wheat"
+                       FontSize="25"
+                       FontWeight="Bold"
+                       HorizontalContentAlignment="Center">
+                   Floor 2
+                </Label>
+            </Border>
+            <Border x:Name="T3"  Background="Green" 
+                    Grid.Column="2" Grid.Row="0"
+                    Margin="10"
+                    CornerRadius="5"
+                    MouseLeftButtonDown="getFloor">
+
+                <Label VerticalContentAlignment="Center" 
+                       Foreground="Wheat"
+                       FontSize="25"
+                       FontWeight="Bold"
+                       HorizontalContentAlignment="Center">
+                    Floor 3
+                </Label>
+            </Border>
+            <Border x:Name="T4"  Background="Green" 
+                    Grid.Column="3" Grid.Row="0"
+                    Margin="10"
+                    CornerRadius="5"
+                    MouseLeftButtonDown="getFloor">
+
+                <Label VerticalContentAlignment="Center" 
+                       Foreground="Wheat"
+                       FontSize="25"
+                       FontWeight="Bold"
+                       HorizontalContentAlignment="Center">
+                    Floor 4
+                </Label>
+            </Border>
+            <Border x:Name="T5"  Background="Green" 
+                    Grid.Column="4" Grid.Row="0"
+                    Margin="10"
+                    CornerRadius="5"
+                    MouseLeftButtonDown="getFloor">
+
+                <Label VerticalContentAlignment="Center" 
+                       Foreground="Wheat"
+                       FontSize="25"
+                       FontWeight="Bold"
+                       HorizontalContentAlignment="Center">
+                    Floor 5
+                </Label>
+            </Border>
+            <Border x:Name="T6"  Background="Green" 
+                    Grid.Column="0" Grid.Row="1"
+                    Margin="10"
+                    CornerRadius="5"
+                    MouseLeftButtonDown="getFloor">
+
+                <Label VerticalContentAlignment="Center" 
+                       Foreground="Wheat"
+                       FontSize="25"
+                       FontWeight="Bold"
+                       HorizontalContentAlignment="Center">
+                    Floor 6
+                </Label>
+            </Border>
+            <Border x:Name="T7"  Background="Green" 
+                    Grid.Column="1" Grid.Row="1"
+                    Margin="10"
+                    CornerRadius="5"
+                    MouseLeftButtonDown="getFloor">
+
+                <Label VerticalContentAlignment="Center" 
+                       Foreground="Wheat"
+                       FontSize="25"
+                       FontWeight="Bold"
+                       HorizontalContentAlignment="Center">
+                    Floor 7
+                </Label>
+            </Border>
+           
+
+
+        </Grid>
     </Border>
 </Page>

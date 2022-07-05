@@ -25,32 +25,45 @@ namespace WPF_login.Views.Pages
     /// </summary>
     public partial class Home : Page
     {
+        MqttClient client;
+        string id;
         public Home()
         {
             InitializeComponent();
-            DataContext = this;
-
-
-
-            var client = new MqttClient("localhost", 1883, false, null, null, MqttSslProtocols.None);
-            string id = "rinhtt";    // Client-Id mit Zuffalssstring
-            client.Connect(id);
+           
+             client = new MqttClient("localhost", 1883, false, null, null, MqttSslProtocols.None);
+             id = "rinhtt";    // Client-Id mit Zuffalssstring
+           
             var payload = new ServerContext();
             payload.ClientId = "rinhtt";
             payload.Url = "manage/nodesum";
-
+            //payload.Token = System.Windows.Application.Current.Properties["Token"].ToString();
             client.Publish("device", UTF8Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(payload)));
             client.Subscribe(new[] { "response/tong" }, new[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
+            client.Subscribe(new[] { "alert" }, new[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
             //client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
             client.MqttMsgPublishReceived += async (object sender, MqttMsgPublishEventArgs e) =>
             {
+                
                 string ReceivedMessage = Encoding.UTF8.GetString(e.Message);
                 var msg = JsonConvert.DeserializeObject<ObjSum>(ReceivedMessage);
-                var newValue = msg.Value;
+                if (msg.Action.Equals("manage_Alert"))
+                {
+                    //await Application.Current.Dispatcher.InvokeAsync(() => {
+                        MessageBoxResult result = MessageBox.Show("Cháy rồi");
+                    //});
+                   
+                    return;
+                }
+                    var newValue = msg.Value;
                 //Application.Current.Dispatcher.InvokeAsync(() => { senserInfolst = JsonConvert.DeserializeObject<List<senser>>(ReceivedMessage); });
                 await Application.Current.Dispatcher.InvokeAsync(() => { this.DataContext = newValue; });
 
             };
+            client.Connect(id);
+            DataContext = this;
+           
+            #region
             //var nodelst = new nodeSumlstString();
             //nodelst.nhiet_do = new List<setDataString>()
             //{
@@ -100,8 +113,8 @@ namespace WPF_login.Views.Pages
             //nodelst.sum.nhiet_do = nodelst.sum.gas = nodelst.sum.khoi = nodelst.sum.do_am=60;
             //this.DataContext = nodelst;
 
-
+            #endregion
         }
-       
+
     }
 }

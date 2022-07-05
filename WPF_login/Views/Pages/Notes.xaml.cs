@@ -27,7 +27,7 @@ namespace WPF_login.Views.Pages
         public  Notes()
         {
             InitializeComponent();
-            DataContext = this;
+           
             var client = new MqttClient("localhost", 1883, false, null, null, MqttSslProtocols.None);
             string id = "rinhtt";    // Client-Id mit Zuffalssstring
             client.Connect(id);
@@ -46,10 +46,11 @@ namespace WPF_login.Views.Pages
               await Application.Current.Dispatcher.InvokeAsync(() => { dataGrid.ItemsSource = newValue; });
 
             };
-        
-                
-            
+
+            DataContext = this;
+
         }
+        #region
         //public static List<senser> senserInfolst { get; set; }
         //public static string txtTopic { get; set; }
         //static void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
@@ -60,5 +61,6 @@ namespace WPF_login.Views.Pages
         //    Application.Current.Dispatcher.InvokeAsync(() => {  dataGrid.ItemsSource = ReceivedMessage; });
 
         //}
+        #endregion
     }
 }

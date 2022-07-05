@@ -413,3 +413,13 @@ D:\Download D\WPF_login\WPF_login\bin\Debug\MQTTnet.xml
 D:\Download D\WPF_login\WPF_login\bin\Debug\Syncfusion.SfProgressBar.WPF.xml
 D:\Download D\WPF_login\WPF_login\bin\Debug\Syncfusion.SfChart.WPF.dll
 D:\Download D\WPF_login\WPF_login\bin\Debug\Syncfusion.SfChart.WPF.xml
+D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Pages\Rooms.g.cs
+D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Pages\FloorData.g.cs
+D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Support\Dialog.g.cs
+D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Pages\Rooms.baml
+D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Pages\FloorData.baml
+D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Support\Dialog.baml
+D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Floors\FloorData.g.cs
+D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Floors\MainFloor.g.cs
+D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Floors\FloorData.baml
+D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Floors\MainFloor.baml

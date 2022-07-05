@@ -9,6 +9,10 @@
       Title="HomePage">
 
     <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
-        
+
+        <Grid x:Name="room">
+            <Border Width="100" Height="100" Background="Red" RenderTransformOrigin="-1.287,-0.543" Margin="125,10,575,340"></Border>
+            <Border Width="100" Height="100" Background="Red" Margin="10,10,690,340"></Border>
+        </Grid>
     </Border>
 </Page>

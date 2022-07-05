@@ -45,6 +45,12 @@ namespace WPF_login.Models
         public List<NodeModel> Value { get; set; }
         public string Action { get; set; }
     }
+    public class ObjLog
+    {
+
+        public ObjLogin Value { get; set; }
+        public string Action { get; set; }
+    }
     public class ObjSum
     {
 
@@ -77,4 +83,27 @@ namespace WPF_login.Models
         public List<setDataString> do_am { get; set; }//3
 
     }
+    public class Building
+    {
+        public string Id { get; set; }
+        public List<Flooring> floors { get; set; }
+    }
+    public class Flooring {
+        public string Id { get; set; }
+        public List<Room> rooms { get; set; }
+
+    }
+    public class Room
+    {
+        public string Id { get; set; }
+        public List<string> NodeIds { get; set; }
+
+    }
+    public class ObjConvert
+    {
+
+        public object Value { get; set; }
+        public string Action { get; set; }
+    }
+
 }
