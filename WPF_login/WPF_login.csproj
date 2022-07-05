@@ -248,9 +248,6 @@
     <Compile Include="Views\Pages\Rooms.xaml.cs">
       <DependentUpon>Rooms.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\FloorData.xaml.cs">
-      <DependentUpon>FloorData.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Pages\SoundsPage.xaml.cs">
       <DependentUpon>SoundsPage.xaml</DependentUpon>
     </Compile>
@@ -302,10 +299,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\Rooms.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Pages\FloorData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

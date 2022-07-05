@@ -39,9 +39,10 @@ namespace WPF_login.Views.Floors
             var payload = new ServerContext();
             payload.ClientId = "rinhtt";
             payload.Url = "manage/NodeSumFloor";
+            payload.Value = floorId;
             //payload.Token = System.Windows.Application.Current.Properties["Token"].ToString();
             client.Publish("device", UTF8Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(payload)));
-            client.Subscribe(new[] { "response/sum_floors" }, new[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
+            client.Subscribe(new[] { "response/tong/"+ floorId }, new[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
             //client.Subscribe(new[] { "alert" }, new[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
             //client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
             client.MqttMsgPublishReceived +=  async (object sender, MqttMsgPublishEventArgs e) =>

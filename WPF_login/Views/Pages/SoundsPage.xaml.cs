@@ -90,7 +90,7 @@ namespace WPF_login.Views.Pages
             MessageBoxResult message = MessageBox.Show("Bạn có chắc chắn chọn xem thông tin tầng này ?");
             if (message.Equals(MessageBoxResult.OK))
             {
-                new Floors.MainFloor("1").Show();
+                new Floors.MainFloor("F1").Show();
 
             }
         }
