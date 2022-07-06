@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,40 +11,37 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using uPLibrary.Networking.M2Mqtt;
-using uPLibrary.Networking.M2Mqtt.Messages;
-using WPF_login.Models;
 
-namespace WPF_login.Views.Floors
+namespace WPF_login.Views.Rooms
 {
     /// <summary>
-    /// Interaction logic for MainFloor.xaml
+    /// Interaction logic for MainRoom.xaml
     /// </summary>
-    public partial class MainFloor : Window
+    public partial class MainRoom : Window
     {
-        string floorId;
-        public MainFloor()
+        string roomId;
+        public MainRoom()
         {
             InitializeComponent();
         }
-        public MainFloor(string floorId)
+        public MainRoom(string roomId)
         {
             InitializeComponent();
             DataContext = this;
-            this.floorId = floorId;
+            this.roomId = roomId;
             //PagesNavigation.Navigate(new System.Uri("Views/Floors/FloorData.xaml?floorId="+floorId, UriKind.RelativeOrAbsolute));
-            PagesNavigation.Navigate(new FloorData(floorId));
+            PagesNavigation.Navigate(new RoomData(roomId));
         }
         private void rdHome_Click(object sender, RoutedEventArgs e)
         {
             // PagesNavigation.Navigate(new HomePage());
 
-            PagesNavigation.Navigate(new FloorData(floorId));
+            PagesNavigation.Navigate(new RoomData(roomId));
         }
 
         private void rdPayment_Click(object sender, RoutedEventArgs e)
         {
-            PagesNavigation.Navigate(new RoomList(floorId));
+            PagesNavigation.Navigate(new NodeList(roomId));
         }
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {

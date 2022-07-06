@@ -230,6 +230,9 @@
     <Compile Include="Views\Floors\MainFloor.xaml.cs">
       <DependentUpon>MainFloor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Floors\RoomList.xaml.cs">
+      <DependentUpon>RoomList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -250,6 +253,15 @@
     </Compile>
     <Compile Include="Views\Pages\SoundsPage.xaml.cs">
       <DependentUpon>SoundsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Rooms\MainRoom.xaml.cs">
+      <DependentUpon>MainRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Rooms\NodeList.xaml.cs">
+      <DependentUpon>NodeList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Rooms\RoomData.xaml.cs">
+      <DependentUpon>RoomData.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Support\Dialog.xaml.cs">
       <DependentUpon>Dialog.xaml</DependentUpon>
@@ -278,6 +290,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Floors\RoomList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -303,6 +319,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\SoundsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Rooms\MainRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Rooms\NodeList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Rooms\RoomData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -360,6 +388,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\Floors\image\AVT.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Rooms\image\AVT.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

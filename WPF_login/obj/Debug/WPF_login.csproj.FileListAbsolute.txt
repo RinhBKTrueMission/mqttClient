@@ -421,3 +421,11 @@ D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Floors\FloorData.g.cs
 D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Floors\MainFloor.g.cs
 D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Floors\FloorData.baml
 D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Floors\MainFloor.baml
+D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Floors\RoomList.g.cs
+D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Floors\RoomList.baml
+D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Rooms\MainRoom.g.cs
+D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Rooms\NodeList.g.cs
+D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Rooms\RoomData.g.cs
+D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Rooms\MainRoom.baml
+D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Rooms\NodeList.baml
+D:\Download D\WPF_login\WPF_login\obj\Debug\Views\Rooms\RoomData.baml

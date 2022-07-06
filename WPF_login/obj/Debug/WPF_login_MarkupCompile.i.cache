@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Download D\WPF_login\WPF_login\App.xaml
-14-2026356475
+18-1458354912
 
-19-2102594109
+23196953728
 162-560329283
-MainWindow.xaml;Views\Assets\Icons\Icons.xaml;Views\Floors\FloorData.xaml;Views\Floors\MainFloor.xaml;Views\Login.xaml;Views\Main.xaml;Views\Pages\Home.xaml;Views\Pages\Notes.xaml;Views\Pages\PaymentPage.xaml;Views\Pages\Rooms.xaml;Views\Pages\SoundsPage.xaml;Views\Styles\MainStyle.xaml;Views\Support\Dialog.xaml;Views\Themes\LightTheme.xaml;
+MainWindow.xaml;Views\Assets\Icons\Icons.xaml;Views\Floors\FloorData.xaml;Views\Floors\MainFloor.xaml;Views\Floors\RoomList.xaml;Views\Login.xaml;Views\Main.xaml;Views\Pages\Home.xaml;Views\Pages\Notes.xaml;Views\Pages\PaymentPage.xaml;Views\Pages\Rooms.xaml;Views\Pages\SoundsPage.xaml;Views\Rooms\MainRoom.xaml;Views\Rooms\NodeList.xaml;Views\Rooms\RoomData.xaml;Views\Styles\MainStyle.xaml;Views\Support\Dialog.xaml;Views\Themes\LightTheme.xaml;
 
 True
 
