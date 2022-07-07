@@ -9,18 +9,12 @@
       Title="NodeList">
 
     <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
-        <Grid x:Name="Roomlst">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+        <StackPanel x:Name="Nodelst">
+           
 
 
 
 
-        </Grid>
+        </StackPanel>
     </Border>
 </Page>

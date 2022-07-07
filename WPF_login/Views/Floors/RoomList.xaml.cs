@@ -54,6 +54,7 @@ namespace WPF_login.Views.Floors
                     if (kq <= 1)
                     {
                         RowDefinition rowDef1 = new RowDefinition();
+
                     }
                     else
                     {
