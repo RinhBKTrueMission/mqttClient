@@ -10,7 +10,7 @@
 
     <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
         <StackPanel x:Name="Nodelst">
-           
+            <Label FontSize="24" FontWeight="Bold" Background="Orange" Margin="0 5 0 10">Danh sách các đầu cảm biến</Label>
 
 
 

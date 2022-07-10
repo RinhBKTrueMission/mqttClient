@@ -86,11 +86,11 @@ namespace WPF_login.Views.Pages
         private void getFloor(object sender, MouseButtonEventArgs e)
         {
 
-
+            Floors.MainFloor main = new Floors.MainFloor("F1");
             MessageBoxResult message = MessageBox.Show("Bạn có chắc chắn chọn xem thông tin tầng này ?");
             if (message.Equals(MessageBoxResult.OK))
             {
-                new Floors.MainFloor("F1").Show();
+                main.Show();
 
             }
         }

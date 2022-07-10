@@ -9,17 +9,16 @@
       Title="HomePage">
 
 
-    <Grid>
-        <DataGrid Name = "dataGrid" AlternatingRowBackground = "LightBlue" 
-         AlternationCount = "2" AutoGenerateColumns = "False" Width="Auto">
+    <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="Nodelst">
+                <Label FontSize="24" FontWeight="Bold" Background="Orange" Margin="0 5 0 10">Danh sách các đầu cảm biến</Label>
 
-            <DataGrid.Columns>
-                <DataGridTextColumn Header = "Id" Binding = "{Binding Id}" />
-                <DataGridTextColumn Header = "Chức năng" Binding = "{Binding function}" />
-                <DataGridTextColumn Header = "Vị trí" Binding = "{Binding location}" />
-                <DataGridTextColumn Header = "Trạng Thái" Binding = "{Binding status}" />
-                <DataGridTextColumn  />
-            </DataGrid.Columns>
-        </DataGrid>
-    </Grid>
+
+
+
+
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
 </Page>

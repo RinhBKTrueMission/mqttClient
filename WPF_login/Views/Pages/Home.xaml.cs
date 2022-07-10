@@ -39,8 +39,7 @@ namespace WPF_login.Views.Pages
             payload.Url = "manage/nodesum";
             //payload.Token = System.Windows.Application.Current.Properties["Token"].ToString();
             client.Publish("device", UTF8Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(payload)));
-            client.Subscribe(new[] { "response/tong" }, new[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
-            client.Subscribe(new[] { "alert" }, new[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
+           
             //client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
             client.MqttMsgPublishReceived += async (object sender, MqttMsgPublishEventArgs e) =>
             {
@@ -60,6 +59,9 @@ namespace WPF_login.Views.Pages
                 await Application.Current.Dispatcher.InvokeAsync(() => { this.DataContext = newValue; });
 
             };
+            client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
+            client.Subscribe(new[] { "response/tong" }, new[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
+            client.Subscribe(new[] { "alert" }, new[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
             client.Connect(id);
             DataContext = this;
            
@@ -114,6 +116,22 @@ namespace WPF_login.Views.Pages
             //this.DataContext = nodelst;
 
             #endregion
+        }
+        static async void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
+        {
+
+            // handle message received 
+            Console.WriteLine("Received = " + Encoding.UTF8.GetString(e.Message) + " on topic " + e.Topic);
+            string ReceivedMessage = Encoding.UTF8.GetString(e.Message);
+            var msg = JsonConvert.DeserializeObject<ObjSum>(ReceivedMessage);
+            if (msg.Action.Equals("manage_Alert"))
+            {
+                //await Application.Current.Dispatcher.InvokeAsync(() => {
+                MessageBoxResult result = MessageBox.Show("Cháy rồi");
+                //});
+
+                return;
+            }
         }
 
     }

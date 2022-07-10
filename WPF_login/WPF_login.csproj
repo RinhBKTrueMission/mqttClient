@@ -224,6 +224,7 @@
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ServerContext.cs" />
     <Compile Include="Models\NodeModel.cs" />
+    <Compile Include="Service\client.cs" />
     <Compile Include="Views\Floors\FloorData.xaml.cs">
       <DependentUpon>FloorData.xaml</DependentUpon>
     </Compile>

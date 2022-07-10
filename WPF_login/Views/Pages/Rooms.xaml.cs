@@ -23,6 +23,7 @@ namespace WPF_login.Views.Pages
         public Rooms()
         {
             InitializeComponent();
+            #region
             //client = new MqttClient("localhost", 1883, false, null, null, MqttSslProtocols.None);
             //id = "rinhtt";    // Client-Id mit Zuffalssstring
             //client.Connect(id);
@@ -73,6 +74,7 @@ namespace WPF_login.Views.Pages
 
             //    });
             //};
+            #endregion
         }
     }
 }

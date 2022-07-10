@@ -57,7 +57,7 @@ namespace WPF_login.Views.Rooms
                 await Application.Current.Dispatcher.InvokeAsync(() =>
                 {
 
-                    foreach(var node in newValue)
+                    foreach (var node in newValue)
                     {
                         Border border = new Border();
                         border.Height = 100;
@@ -66,10 +66,10 @@ namespace WPF_login.Views.Rooms
                         border.Child = stack;
                         Border border1 = new Border();
                         Label label = new Label();
-                        label=new Label();
-                        label.Content = "ID : "+node.Id;
-                        border1.Child=label;
-                      
+                        label = new Label();
+                        label.Content = "ID : " + node.Id;
+                        border1.Child = label;
+
                         Grid grid = new Grid();
                         RowDefinition rowf1 = new RowDefinition();
                         RowDefinition rowf2 = new RowDefinition();
@@ -88,7 +88,7 @@ namespace WPF_login.Views.Rooms
                         grid.RowDefinitions.Add(rowf2);
                         grid.RowDefinitions.Add(rowf3);
 
-                       
+
                         Label label1 = new Label();
                         label1.Content = "Chức năng";
                         label1.Height = 100;
@@ -118,7 +118,28 @@ namespace WPF_login.Views.Rooms
                         Grid.SetColumn(label4, 3);
 
                         Label label5 = new Label();
-                        label5.Content =node.function;
+                        /*
+                           0 báo nhiệt
+                           1 báo gas
+                           2 báo khói
+                           3 cảm biến độ ẩm
+                        */
+                        if (node.function == 0)
+                        {
+                            label5.Content = "Báo nhiệt";
+                        }
+                        else if (node.function == 1)
+                        {
+                            label5.Content = "Báo khí gas";
+                        }
+                        else if (node.function == 2)
+                        {
+                            label5.Content = "Báo khói";
+                        }
+                        else if (node.function == 3)
+                        {
+                            label5.Content = "Báo độ ẩm";
+                        }
                         label5.Height = 100;
                         grid.Children.Add(label5);
                         Grid.SetRow(label5, 1);
@@ -126,49 +147,56 @@ namespace WPF_login.Views.Rooms
 
                         Label label6 = new Label();
                         label6.Height = 100;
-                        label6.Content = node.location;
+                        //"B01F01P01"
+                        var build = int.Parse(node.location.Substring(1, 2));
+                        var floor = int.Parse(node.location.Substring(4, 2));
+                        var room = int.Parse(node.location.Substring(7, 2));
+                        label6.Content = "Phòng " + room + " Tầng " + floor + " Tòa " + build;
                         grid.Children.Add(label6);
                         Grid.SetRow(label6, 1);
                         Grid.SetColumn(label6, 1);
 
                         Label label7 = new Label();
                         label7.Height = 100;
-                        label7.Content = node.listData.ToArray().Last<setData>().value;
+                        label7.Content =ConvertValue(node.listData.ToArray().Last<setData>().value,node.function);
                         grid.Children.Add(label7);
                         Grid.SetRow(label7, 1);
                         Grid.SetColumn(label7, 2);
 
                         Label label8 = new Label();
-                        label8.Content = node.status;
                         label8.Height = 100;
                         grid.Children.Add(label8);
                         Grid.SetRow(label8, 1);
                         Grid.SetColumn(label8, 3);
                         Border border2 = new Border();
-                         border2.Child = grid;
+                        border2.Child = grid;
                         grid.Height = 200;
                         border2.Height = 200;
-                        border1.Margin = new Thickness(0,10,0,0);
+                        border1.Margin = new Thickness(0, 10, 0, 0);
                         if (node.status == 0)
                         {
-                            border1.Background =Brushes.SteelBlue;
+                            label8.Content = "Bình thường";
+                            border1.Background = Brushes.SteelBlue;
                             border2.Background = Brushes.PowderBlue;
-                        }else if (node.status == 1)
+                        }
+                        else if (node.status == 1)
                         {
+                            label8.Content = "Sự cố";
                             border1.Background = Brushes.PaleGoldenrod;
                             border2.Background = Brushes.FloralWhite;
                         }
                         else
                         {
+                            label8.Content = "Bình thường";
                             border1.Background = Brushes.Firebrick;
                             border2.Background = Brushes.Salmon;
                         }
-                        stack.Children.Insert(0,border1);
-                        stack.Children.Insert(1,border2);
-                       
+                        stack.Children.Insert(0, border1);
+                        stack.Children.Insert(1, border2);
+
 
                         Nodelst.Children.Add(border);
-                        
+
 
 
 
@@ -186,6 +214,27 @@ namespace WPF_login.Views.Rooms
             {
                 //new Floors.MainFloor("1").Show();
 
+            }
+        }
+        /*
+                           0 báo nhiệt
+                           1 báo gas
+                           2 báo khói
+                           3 cảm biến độ ẩm
+                        */
+        private static string ConvertValue(double value,int style)
+        {
+            if (style == 0)
+            {
+                return value + " °C";
+            }
+            else if(style==1 || style == 2)
+            {
+                return value + " ppm";
+            }
+            else
+            {
+                return value + " %";
             }
         }
     }
