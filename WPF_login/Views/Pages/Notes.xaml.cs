@@ -32,7 +32,7 @@ namespace WPF_login.Views.Pages
             string id = "rinhtt";    // Client-Id mit Zuffalssstring
             client.Connect(id);
             var payload = new ServerContext();
-            payload.ClientId = "rinhtt";
+            payload.ClientId = "rinhtt1";
             payload.Url = "manage/devicelist";
            
             client.Publish("device", UTF8Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(payload)));
@@ -41,7 +41,7 @@ namespace WPF_login.Views.Pages
             client.MqttMsgPublishReceived += async (object sender, MqttMsgPublishEventArgs e) => {
                 string ReceivedMessage = Encoding.UTF8.GetString(e.Message);
                 var msg = JsonConvert.DeserializeObject<Obj>(ReceivedMessage);
-                var newValue = msg.Value;
+                var newValue = msg.Value.OrderByDescending(s => s.status);
                 //Application.Current.Dispatcher.InvokeAsync(() => { senserInfolst = JsonConvert.DeserializeObject<List<senser>>(ReceivedMessage); });
                 await Application.Current.Dispatcher.InvokeAsync(() =>
                 {

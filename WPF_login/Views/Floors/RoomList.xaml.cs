@@ -33,7 +33,7 @@ namespace WPF_login.Views.Floors
             id = "rinhtt";    // Client-Id mit Zuffalssstring
             client.Connect(id);
             var payload = new ServerContext();
-            payload.ClientId = "rinhtt";
+            payload.ClientId = "rinhtt3";
             payload.Url = "manage/RoomList";
             payload.Value = floorId;
             //payload.Token = System.Windows.Application.Current.Properties["Token"].ToString();
@@ -74,7 +74,7 @@ namespace WPF_login.Views.Floors
                         label.VerticalContentAlignment = VerticalAlignment.Center;
                         label.HorizontalContentAlignment= HorizontalAlignment.Center;
                         label.FontSize = 25;
-                        label.Content = "Room"+item.Id.Substring(1);
+                        label.Content = "Phòng "+item.Id.Substring(1);
                         label.Foreground = Brushes.Wheat;
                         border.Background = Brushes.Green;
                         border.CornerRadius = new CornerRadius(5);
@@ -97,7 +97,7 @@ namespace WPF_login.Views.Floors
         }
         private void getFloor(object sender, MouseButtonEventArgs e)
         {
-            string room= e.Source.ToString().Split(' ')[1].Replace("Room", "P");
+            string room= e.Source.ToString().Trim().Split(':')[1].Replace("Phòng ", "P").Trim();
             string sourceName =e.Source.ToString().Split(' ')[1];
             MessageBoxResult message = MessageBox.Show("Bạn muốn xem chi tiết "+sourceName);
             if (message.Equals(MessageBoxResult.OK))

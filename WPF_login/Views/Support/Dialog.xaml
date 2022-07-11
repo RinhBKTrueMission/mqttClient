@@ -5,29 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_login.Views.Support"
         mc:Ignorable="d"
-        Title="Dialog" Height="200" Width="400">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-           
-        </Grid.ColumnDefinitions>
+        Title="Thông báo" Height="300" Width="250">
+    <Grid x:Name="AlertList">
+       
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
 
         </Grid.RowDefinitions>
-        <Border Grid.ColumnSpan="3">
-            <TextBlock VerticalAlignment="Center" FontSize="14">Bạn muốn chọn xem thông tin
-               
-                các phòng hay số liệu trung bình 
-                 <LineBreak/>của tầng hiện tại ?</TextBlock>
-        </Border>
-        <Button Grid.Column="0" Grid.Row="1" Width="100" Height="40" FontSize="14" Click="Button_Click">Số Phòng</Button>
-        <Button Grid.Column="1" Grid.Row="1" Width="100" Height="40" FontSize="14" Click="Button_Click_1">Thông số</Button>
-        <Button Grid.Column="2" Grid.Row="1" Width="100" Height="40" FontSize="14" Click="Button_Click_2">Thoát</Button>
-
+       
 
     </Grid>
 </Window>

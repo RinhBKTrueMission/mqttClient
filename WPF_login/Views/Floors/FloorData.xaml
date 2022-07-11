@@ -32,7 +32,20 @@
                     <Border Background="#016064" Grid.Column="0" Grid.Row="0">
                         <Label Margin="20 0 0 0" Foreground="White" FontWeight="Bold" FontFamily="Times New Roman">Khả năng cháy</Label>
                     </Border>
-                    <Border Background="White" Grid.Column="0" Grid.Row="1"></Border>
+                    <Border Background="White" Grid.Column="0" Grid.Row="1">
+                        <Grid x:Name="box1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="4*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" Grid.Row="0" Margin="2">
+                                <Image Source="image/ai.png" />
+                            </Border>
+                            <Border Grid.Column="1" Grid.Row="1">
+                                <Label x:Name="report" FontWeight="Bold" VerticalAlignment="Center" FontFamily="Times New Roman "  FontSize="20" ></Label>
+                            </Border>
+                        </Grid>
+                    </Border>
                 </Grid>
             </Border>
             <Border  Margin="5" Background="Black" Grid.Row="0" Grid.Column="1" >
@@ -53,7 +66,7 @@
                         <gauge:SfCircularGauge>
                             <gauge:SfCircularGauge.Scales>
                                 <gauge:CircularScale StartValue="0" EndValue="120" Interval="10" MinorTicksPerInterval="9" LabelStroke="#5b5b5b" 
-                                     RangePosition="Custom" TickPosition="Custom" LabelPosition="Custom" ShowRim="False" LabelOffset="0.6" >
+                                     RangePosition="Custom" TickPosition="Custom" LabelPosition="Custom" ShowRim="False" LabelOffset="0.6" HorizontalAlignment="Right" Width="257" >
                                     <gauge:CircularScale.MajorTickSettings>
                                         <gauge:MajorTickSetting StartOffset="0.85" EndOffset="0.65" StrokeThickness="1" Stroke="Black" />
                                     </gauge:CircularScale.MajorTickSettings>

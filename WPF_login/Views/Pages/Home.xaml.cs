@@ -30,8 +30,19 @@ namespace WPF_login.Views.Pages
         public Home()
         {
             InitializeComponent();
-           
-             client = new MqttClient("localhost", 1883, false, null, null, MqttSslProtocols.None);
+
+            Border border = new Border();
+
+            ImageBrush image = new ImageBrush();
+            image.ImageSource = new BitmapImage(new Uri(@"View/Assets/Icons/ai.jpg", UriKind.Relative));
+            Image image1 = new Image();
+            image1.Source = image.ImageSource;
+            border.Child = image1;
+            box1.Children.Add(border);
+            Grid.SetColumn(border,0);
+            Grid.SetRow(border,0);
+
+            client = new MqttClient("localhost", 1883, false, null, null, MqttSslProtocols.None);
              id = "rinhtt";    // Client-Id mit Zuffalssstring
            
             var payload = new ServerContext();
@@ -46,22 +57,32 @@ namespace WPF_login.Views.Pages
                 
                 string ReceivedMessage = Encoding.UTF8.GetString(e.Message);
                 var msg = JsonConvert.DeserializeObject<ObjSum>(ReceivedMessage);
-                if (msg.Action.Equals("manage_Alert"))
-                {
-                    //await Application.Current.Dispatcher.InvokeAsync(() => {
-                        MessageBoxResult result = MessageBox.Show("Cháy rồi");
-                    //});
-                   
-                    return;
-                }
+              
                     var newValue = msg.Value;
                 //Application.Current.Dispatcher.InvokeAsync(() => { senserInfolst = JsonConvert.DeserializeObject<List<senser>>(ReceivedMessage); });
-                await Application.Current.Dispatcher.InvokeAsync(() => { this.DataContext = newValue; });
+                await Application.Current.Dispatcher.InvokeAsync(() => {
+                    this.DataContext = newValue;
+                    if ((newValue.sum.gas.value >= 0 && newValue.sum.gas.value <= 100) || newValue.sum.nhiet_do.value < 40)
+                    {
+                        report.Content = "THẤP";
+                        report.Foreground = Brushes.Green;
+                    }
+                    else if ((newValue.sum.gas.value > 100 && newValue.sum.gas.value <= 300) || (newValue.sum.nhiet_do.value > 40 && newValue.sum.nhiet_do.value < 60))
+                    {
+                        report.Content = "TRUNG BÌNH";
+                        report.Foreground = Brushes.Yellow;
+                    }
+                    else if (newValue.sum.gas.value > 300 || newValue.sum.nhiet_do.value > 60)
+                    {
+                        report.Content = "CAO";
+                        report.Foreground = Brushes.Red;
+                    }
+                });
 
             };
-            client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
+          
             client.Subscribe(new[] { "response/tong" }, new[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
-            client.Subscribe(new[] { "alert" }, new[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
+            //client.Subscribe(new[] { "alert" }, new[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
             client.Connect(id);
             DataContext = this;
            
@@ -117,22 +138,7 @@ namespace WPF_login.Views.Pages
 
             #endregion
         }
-        static async void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
-        {
-
-            // handle message received 
-            Console.WriteLine("Received = " + Encoding.UTF8.GetString(e.Message) + " on topic " + e.Topic);
-            string ReceivedMessage = Encoding.UTF8.GetString(e.Message);
-            var msg = JsonConvert.DeserializeObject<ObjSum>(ReceivedMessage);
-            if (msg.Action.Equals("manage_Alert"))
-            {
-                //await Application.Current.Dispatcher.InvokeAsync(() => {
-                MessageBoxResult result = MessageBox.Show("Cháy rồi");
-                //});
-
-                return;
-            }
-        }
+       
 
     }
 }

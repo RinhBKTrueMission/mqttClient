@@ -37,7 +37,7 @@ namespace WPF_login.Views.Floors
             id = "rinhtt";    // Client-Id mit Zuffalssstring
 
             var payload = new ServerContext();
-            payload.ClientId = "rinhtt";
+            payload.ClientId = "rinhtt2";
             payload.Url = "manage/NodeSumFloor";
             payload.Value = floorId;
             //payload.Token = System.Windows.Application.Current.Properties["Token"].ToString();
@@ -60,7 +60,24 @@ namespace WPF_login.Views.Floors
                 //}
                 var newValue = msg.Value;
                 //Application.Current.Dispatcher.InvokeAsync(() => { senserInfolst = JsonConvert.DeserializeObject<List<senser>>(ReceivedMessage); });
-                 await Application.Current.Dispatcher.InvokeAsync(() => { this.DataContext = newValue; });
+                 await Application.Current.Dispatcher.InvokeAsync(() => { 
+                     this.DataContext = newValue;
+                     if ((newValue.sum.gas.value >= 0 && newValue.sum.gas.value <= 100) || newValue.sum.nhiet_do.value < 40)
+                     {
+                         report.Content = "THẤP";
+                         report.Foreground = Brushes.Green;
+                     }
+                     else if ((newValue.sum.gas.value > 100 && newValue.sum.gas.value <= 300) || (newValue.sum.nhiet_do.value > 40 && newValue.sum.nhiet_do.value < 60))
+                     {
+                         report.Content = "TRUNG BÌNH";
+                         report.Foreground = Brushes.Yellow;
+                     }
+                     else if (newValue.sum.gas.value > 300 || newValue.sum.nhiet_do.value > 60)
+                     {
+                         report.Content = "CAO";
+                         report.Foreground = Brushes.Red;
+                     }
+                 });
 
             };
             client.Connect(id);

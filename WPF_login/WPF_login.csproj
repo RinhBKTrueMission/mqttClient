@@ -393,6 +393,25 @@
   <ItemGroup>
     <Resource Include="Views\Rooms\image\AVT.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Support\Image\bell1.jpg" />
+    <Resource Include="Views\Support\Image\bell2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Support\Image\bell.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Assets\Icons\ai.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Pages\image\ai.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Floors\image\ai.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Rooms\image\ai.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

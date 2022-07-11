@@ -26,9 +26,8 @@ namespace WPF_login.Views.Pages
         public PaymentPage()
         {
             InitializeComponent();
-            Border border =new Border();
-            border.Width = 100;
-            border.Height = 100;
+           
+           
 
         }
         

@@ -41,7 +41,7 @@ namespace WPF_login.Views.Rooms
             id = "rinhtt";    // Client-Id mit Zuffalssstring
             client.Connect(id);
             var payload = new ServerContext();
-            payload.ClientId = "rinhtt";
+            payload.ClientId = "rinhtt5";
             payload.Url = "manage/NodeListinRoom";
             payload.Value = roomId;
             //payload.Token = System.Windows.Application.Current.Properties["Token"].ToString();

@@ -46,7 +46,7 @@ namespace WPF_login.Views
                     //Application.Current.Dispatcher.InvokeAsync(() => { senserInfolst = JsonConvert.DeserializeObject<List<senser>>(ReceivedMessage); });
                     await Application.Current.Dispatcher.InvokeAsync(() =>
                     {
-                        MessageBoxResult result = MessageBox.Show("Cháy rồi");
+                        new WPF_login.Views.Support.Dialog(newValue).Show();
 
 
                     });

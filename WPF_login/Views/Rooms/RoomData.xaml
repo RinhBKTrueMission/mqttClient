@@ -32,7 +32,20 @@
                     <Border Background="#016064" Grid.Column="0" Grid.Row="0">
                         <Label Margin="20 0 0 0" Foreground="White" FontWeight="Bold" FontFamily="Times New Roman">Khả năng cháy</Label>
                     </Border>
-                    <Border Background="White" Grid.Column="0" Grid.Row="1"></Border>
+                    <Border Background="White" Grid.Column="0" Grid.Row="1">
+                        <Grid x:Name="box1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="4*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" Grid.Row="0" Margin="2">
+                                <Image Source="image/ai.png" />
+                            </Border>
+                            <Border Grid.Column="1" Grid.Row="1">
+                                <Label x:Name="report" FontWeight="Bold" VerticalAlignment="Center" FontFamily="Times New Roman "  FontSize="20" ></Label>
+                            </Border>
+                        </Grid>
+                    </Border>
                 </Grid>
             </Border>
             <Border  Margin="5" Background="Black" Grid.Row="0" Grid.Column="1" >
